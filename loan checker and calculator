@@ -1,0 +1,266 @@
+def eligbcheck(i):
+    if (i=="yes" or i=="YES" or i=="Yes"):
+        k=input("Do you have Income Tax returns for last five years(yes/no):")
+        if (k == "yes" or k == "YES" or k == "Yes"):
+            print("Choose in which range your last Income Tax Returns belong to:")
+            g=ranger(k)
+            return("You are Eligible for a loan of "+g)
+        elif(k=="no" or k=="NO" or k=="No"):
+            j=input("Are you a Government Employee(yes/no):")
+            if (j == "yes" or j == "YES" or j == "Yes"):
+                print("Choose in which range your salary per year belong to:")
+                g = ranger(j)
+                return("You are Eligible for a loan of "+ g)
+            elif (j == "no" or j == "NO" or j == "No"):
+                m = input("Are you a Private Employee not on probation(yes/no):")
+                if (m == "yes" or m == "YES" or m == "Yes"):
+                    print("Choose in which range your salary per year belong to:")
+                    g = ranger(m)
+                    return("You are Eligible for a loan of "+ g)
+                elif (m == "no" or m == "NO" or m == "No"):
+                    p = input("Are you a Farmer(yes/no):")
+                    if (p == "yes" or p == "YES" or p == "Yes"):
+                        farm=input("Do you have your own land to plough(yes/no):")
+                        if(farm == "yes" or farm == "YES" or farm == "Yes"):
+                            print("Choose the range in which your land worth is:")
+                            g=farmerranger(farm)
+                            return("You are Eligible for a loan of "+ g)
+                    elif (p == "no" or p == "NO" or p == "No"):
+                        form=input("Do you have form 16 A(yes/no):")
+                        if(form=="Yes" or form=="yes" or form=="YES"):
+                            print("Choose in which range your last form 16 Amount belong to:")
+                            g = ranger(form)
+                            return("You are Eligible for a loan of "+ g)
+                        elif (p == "no" or p == "NO" or p == "No"):
+                            return("Sorry You Are Not Eligibile For A Loan")
+                        else:
+                            print("###############################################################################################################")
+                            print("invalid input")
+                            print("###############################################################################################################")
+                            return (intro(i))
+                    else:
+                        print("###############################################################################################################")
+                        print("invalid input")
+                        print("###############################################################################################################")
+                        return (intro(i))
+                else:
+                    print("###############################################################################################################")
+                    print("invalid input")
+                    print("###############################################################################################################")
+                    return (intro(i))
+            else:
+                print("###############################################################################################################")
+                print("invalid input")
+                print("###############################################################################################################")
+                return (intro(i))
+        else:
+            print("###############################################################################################################")
+            print("invalid input")
+            print("###############################################################################################################")
+            return (intro(i))
+    elif(i=="no" or i=="NO" or i=="No"):
+        return("As your wish Thank you")
+    else:
+        print("###############################################################################################################")
+        print("invalid input")
+        print("###############################################################################################################")
+        return(intro(i))
+
+def ranger(k):
+    print("1.(5-10 LPA)")
+    print("2.(10-15 LPA)")
+    print("3.(15-20 LPA)")
+    print("4.(20-25 LPA)")
+    i=input("Enter the number of the range given:")
+    if(i=="1"):
+        rate="2000000 Rs for the rate 12 % per year"
+        return(rate)
+    elif(i=="2"):
+        rate = "3000000 Rs for the rate 11 % per year"
+        return (rate)
+    elif (i == "3"):
+        rate = "4000000 Rs for the rate 10 % per year"
+        return (rate)
+    elif (i == "4"):
+        rate = "5000000 Rs for the rate 9 % per year"
+        return (rate)
+    else:
+        print("###############################################################################################################")
+        print("invalid input")
+        print("###############################################################################################################")
+        return(ranger(k))
+
+def farmerranger(k):
+    print("1.(5-10 LPA)")
+    print("2.(10-15 LPA)")
+    print("3.(15-20 LPA)")
+    print("4.(20-25 LPA)")
+    i=input("Enter the number of the range given:")
+    if(i=="1"):
+        h=loan(i)
+        r=(h+" Rs"+" for the rate 12 % per year")
+        return(r)
+    elif(i=="2"):
+        h = loan(i)
+        r=(h+" Rs"+" for the rate 11 % per year")
+        return(r)
+    elif (i == "3"):
+        h = loan(i)
+        r=(h+" Rs"+" for the rate 10 % per year")
+        return(r)
+    elif (i == "4"):
+        h = loan(i)
+        r=(h+" Rs"+" for the rate 9 % per year")
+        return(r)
+    else:
+        print("###############################################################################################################")
+        print("invalid input")
+        print("###############################################################################################################")
+        return(farmerranger(k))
+
+def loan(x):
+    loa = int(input("Enter Your Land worth (Rs symbol not needed):"))
+    if(x=="1"):
+        if(loa in range(500000,1000001)):
+            h=loa / 10
+            tot=loa-h
+            tot=str(tot)
+            return (tot)
+        else:
+            print("###############################################################################################################")
+            print("Enter the land worth within the given range(5-10 LPA)")
+            print("###############################################################################################################")
+            return(loan(x))
+    elif(x=="2"):
+        if(loa in range(1000001,1500001)):
+            h=loa / 10
+            tot=loa-h
+            tot=str(tot)
+            return (tot)
+        else:
+            print("###############################################################################################################")
+            print("Enter the land worth within the given range(10-15 LPA)")
+            print("###############################################################################################################")
+            return(loan(x))
+    elif (x == "3"):
+        if (loa in range(1500001, 2000001)):
+            h=loa / 10
+            tot=loa-h
+            tot=str(tot)
+            return (tot)
+        else:
+            print("###############################################################################################################")
+            print("Enter the land worth within the given range (15-20 LPA)")
+            print("###############################################################################################################")
+            return (loan(x))
+    elif (x == "4"):
+        if (loa in range(2000001, 2500001)):
+            h=loa / 10
+            tot=loa-h
+            tot=str(tot)
+            return (tot)
+        else:
+            print("###############################################################################################################")
+            print("Enter the land worth within the given range (20-25 LPA)")
+            print("###############################################################################################################")
+            return (loan(x))
+    else:
+        print("Enter the land worth within the given range")
+        return(loan(x))
+
+def loangiver(maxamt):
+    amt=float(input("Enter the amount of loan needed(no Rs symbol needed):"))
+    if(0<amt<=maxamt):
+        if(amt in range (0,2000001)):
+            rate=12
+            return(finalloan(amt,rate))
+        elif (amt in range(2000001,3000001)):
+            rate=11
+            return (finalloan(amt, rate))
+        elif (amt in range(3000001,4000001)):
+            rate=10
+            return (finalloan(amt, rate))
+        elif (amt in range(4000001,5000001)):
+            rate=9
+            return (finalloan(amt, rate))
+    else:
+        print("###############################################################################################################")
+        print("Enter the amount less than or equal to",maxamt,"Rs (not less than zero)")
+        print("###############################################################################################################")
+        return(loangiver(maxamt))
+
+def finalloan(amt,rate):
+    print("For Time Period in Months input = m ")
+    print("For Time Period in Years input = y ")
+    print("Do not input decimal values for year")
+    print("Eg:If you want to input 2 years and 5 months , do not input 2.5 in years , instead choose month and input 30")
+    tum=input("Enter Time Period Option: ")
+    tim=float(conf(tum,amt,rate))
+    r=(rate/12)/100
+    interest=(amt*r*((1+r)**tim))/(((1+r)**tim)-1)
+    interest=str(interest)
+    rate=str(rate)
+    tim=str(tim)
+    amt=str(amt)
+    return(interest+" "+rate+" "+tim+" "+amt)
+
+def conf(y,amt,rate):
+    if(y=="y" or y=="Y"):
+        t=float(input("Enter The Time Period of Years(just the number is needed):"))
+        t=t*12
+        return(t)
+    elif(y=="m" or y=="M"):
+        print("You can not input decimal values for months as the EMI calculated for is per month")
+        t=int(input("Enter The Time Period of Months(just the number is needed):"))
+        return(t)
+
+def fin(len,j):
+    if len == 16:
+        maxamt = float(j[7])
+        interest = str(loangiver(maxamt))
+        u = interest.split(" ")
+        inter = float(u[0])
+        rate = int(u[1])
+        time = float(u[2])
+        ti=int(time/12)
+        amt=float(u[3])
+        jotot=inter*time
+
+        print("You should pay an amount of", inter, "Rs for ", time, "months ,if you take a loan of",amt,
+              "Rs for the time period of", time, "months at the rate of",rate,"%.")
+        print("Total amount you will pay in",time,"months is",jotot)
+        h=input("Do you want to take the loan(yes/no):")
+        if (h == "Yes" or h == "yes" or h == "YES"):
+            print("##############################################BILLING##########################################################")
+            print("The loan has been sanctioned with below mentioned criteria:")
+            print("Loan Amount:",amt,"Rs/-")
+            print("Time period in years for which the loan is borrowed:",time,"months")
+            print("Rate of interest:",rate,"%")
+            print("Amount needed to be paid every month:",inter,"Rs/-")
+            print("Number of months the amount is needed to be paid:",time,"months")
+            print("Total amount to be paid back is:",jotot,"Rs/-")
+            print("###############################################################################################################")
+            return("All is Well")
+        elif (h == "No" or h == "no" or h == "NO"):
+            return("Thank You for using our service")
+    else:
+        return("Thank You for using our service")
+
+def intro(m):
+    i = input("Do You want to check your eligibility(yes/no):")
+    elig = str(eligbcheck(i))
+    print(elig)
+    j=elig.split(" ")
+    le=len(j)
+    print(fin(le, j))
+    print("Thank You for using our service")
+
+
+print("Loan Eligiblity Checker and Loan Biller")
+i=input("Do You want to check your eligibility(yes/no):")
+elig=str(eligbcheck(i))
+print(elig)
+j=elig.split(" ")
+len=len(j)
+print(fin(len,j))
+print("Thank You for using our service")
